@@ -12,3 +12,4 @@ python-multipart~=0.0.5
 celery~=5.2.6
 uvloop>=0.14.0
 httptools==0.1.*
+fastapi-admin~=1.0.3
