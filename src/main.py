@@ -1,8 +1,11 @@
 from fastapi import FastAPI
+from sqladmin import Admin
 from starlette.middleware.cors import CORSMiddleware
 
 from app.api.api_v1.api import api_router
 from app.core.config import settings
+from app.db.session import engine
+from app.models import User, Company, SubscriptionType
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -22,3 +25,9 @@ if settings.BACKEND_CORS_ORIGINS:
     )
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
+
+# admin = Admin(app, engine)
+# admin.register_model(User)
+# admin.register_model(Company)
+# admin.register_model(SubscriptionType)
+
