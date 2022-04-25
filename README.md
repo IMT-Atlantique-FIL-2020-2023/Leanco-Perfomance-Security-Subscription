@@ -18,3 +18,13 @@ pip install -r dev-requirements.txt
 cd src
 uvicorn main:app
 ````
+
+###Migrations
+
+Dans le dossier src : 
+
+```shell
+alembic revision --autogenerate -m "init db"
+```
+
+```
