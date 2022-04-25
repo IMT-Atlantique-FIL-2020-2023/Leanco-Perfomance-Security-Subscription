@@ -22,7 +22,7 @@ class CompanyUpdate(CompanyBase):
 class CompanyInDBBase(CompanyBase):
     id: int
     name: str
-    user_ids: [int]
+    user_ids: int
 
     class Config:
         orm_mode = True
