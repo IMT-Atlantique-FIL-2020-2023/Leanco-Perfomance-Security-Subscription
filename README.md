@@ -15,16 +15,26 @@ pip install -r dev-requirements.txt
 ###Lancement
 
 ````shell
+docker-compose up -d  #lancement de postgresql
 cd src
+alembic upgrade head
 uvicorn main:app
 ````
 
-###Migrations
+### BD Postgresql
+user / password / bd : leanco
+
+
+### Migrations
 
 Dans le dossier src : 
 
+Création d'une migration : 
 ```shell
 alembic revision --autogenerate -m "init db"
 ```
 
+Initialiser des migrations
+```shell
+alembic upgrade head
 ```
