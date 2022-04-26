@@ -12,7 +12,7 @@ from logging.config import fileConfig
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 
-from src.app.db.base_class import Base
+from src.app.db.base import Base  # noqa
 
 config = context.config
 

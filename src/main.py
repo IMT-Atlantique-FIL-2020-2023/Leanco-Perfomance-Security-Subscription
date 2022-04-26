@@ -6,6 +6,9 @@ from app.api.api_v1.api import api_router
 from app.core.config import settings
 from app.db.session import engine
 from app.models import User, Company, SubscriptionType
+from app.admin.user_admin import UserAdmin
+from app.admin.company_admin import CompanyAdmin
+from app.admin.subscription_type_admin import SubscriptionTypeAdmin
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -26,8 +29,8 @@ if settings.BACKEND_CORS_ORIGINS:
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
-# admin = Admin(app, engine)
-# admin.register_model(User)
-# admin.register_model(Company)
-# admin.register_model(SubscriptionType)
+admin = Admin(app, engine)
+admin.register_model(UserAdmin)
+admin.register_model(CompanyAdmin)
+admin.register_model(SubscriptionTypeAdmin)
 

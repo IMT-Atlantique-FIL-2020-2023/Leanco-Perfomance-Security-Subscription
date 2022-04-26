@@ -1,8 +1,8 @@
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import relationship
 
 from ..db.base_class import Base
-
+from ..models import Company, SubscriptionType
 
 class User(Base):
     id = Column(Integer, primary_key=True, index=True, nullable=False)
@@ -14,5 +14,7 @@ class User(Base):
     role = Column(String, nullable=False)
     subscription_startdate = Column(Date, nullable=False)
     subscription_enddate = Column(Date, nullable=False)
+    company_id = Column(Integer, ForeignKey(Company.id))
     company = relationship("Company", back_populates="users")
+    subscription_type_id = Column(Integer, ForeignKey(SubscriptionType.id))
     subscription_type = relationship("SubscriptionType", back_populates="users")
