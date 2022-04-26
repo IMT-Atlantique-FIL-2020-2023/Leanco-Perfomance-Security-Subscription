@@ -8,16 +8,6 @@ class CompanyBase(BaseModel):
     name: Optional[str] = None
 
 
-# Properties to receive on item creation
-class CompanyCreate(CompanyBase):
-    name: str
-
-
-# Properties to receive on item update
-class CompanyUpdate(CompanyBase):
-    pass
-
-
 # Properties shared by models stored in DB
 class CompanyInDBBase(CompanyBase):
     id: int
