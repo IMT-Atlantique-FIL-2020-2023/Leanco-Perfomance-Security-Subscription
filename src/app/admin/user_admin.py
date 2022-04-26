@@ -4,6 +4,9 @@ from ..models import User
 
 
 class UserAdmin(ModelAdmin, model=User):
+    name = "User"
+    name_plural = "Users"
+    icon = "fa-solid fa-user"
     column_list = [User.id,
                    User.firstname,
                    User.lastname,
@@ -14,3 +17,4 @@ class UserAdmin(ModelAdmin, model=User):
                    User.subscription_enddate,
                    User.company,
                    User.subscription_type]
+

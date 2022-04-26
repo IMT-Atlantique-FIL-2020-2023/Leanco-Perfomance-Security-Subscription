@@ -29,7 +29,7 @@ if settings.BACKEND_CORS_ORIGINS:
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
-admin = Admin(app, engine)
+admin = Admin(app, engine, title='LeanCo')
 admin.register_model(UserAdmin)
 admin.register_model(CompanyAdmin)
 admin.register_model(SubscriptionTypeAdmin)
