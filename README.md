@@ -12,7 +12,7 @@ pip install -r dev-requirements.txt
 ```
 
 
-###Lancement
+### Lancement
 
 ````shell
 docker-compose up -d  #lancement de postgresql
@@ -38,3 +38,8 @@ Initialiser des migrations
 ```shell
 alembic upgrade head
 ```
+
+### URL
+
+- Docs: [localhost:8000/docs]('localhost:8000/docs')
+- Admin: [localhost:8000/admin]('localhost:8000/admin')
