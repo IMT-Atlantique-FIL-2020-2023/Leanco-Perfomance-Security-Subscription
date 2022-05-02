@@ -109,3 +109,5 @@ venv.bak/
 .mypy_cache/
 
 .idea/*
+/server.key
+/server-fullchain.crt
