@@ -1,13 +1,16 @@
 import secrets
 from typing import Any, Dict, List, Optional, Union
 
+from jose import jwk
+from jose.backends.base import Key
+from jose.constants import ALGORITHMS
 from pydantic import (
     AnyHttpUrl,
     BaseSettings,
     EmailStr,
     HttpUrl,
     PostgresDsn,
-    validator,
+    validator, FilePath,
 )
 
 
@@ -93,6 +96,25 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER: EmailStr
     FIRST_SUPERUSER_PASSWORD: str
     USERS_OPEN_REGISTRATION: bool = False
+
+
+
+    #Server CERT
+
+    SERVER_PRIVATE_KEY_PATH: FilePath
+    SERVER_PUBLIC_CERT_PATH: FilePath
+    SERVER_PRIVATE_KEY: Key = None
+    SERVER_PUBLIC_CERT: str = ''
+
+    @validator("SERVER_PRIVATE_KEY")
+    def get_server_private_key(cls, v: bool, values: Dict[str, Any]) -> Key:
+        file = open(values.get('SERVER_PRIVATE_KEY_PATH'), "r")
+        return jwk.construct(file.read(), algorithm=ALGORITHMS.RS384)
+
+    @validator("SERVER_PUBLIC_CERT")
+    def get_server_public_cert(cls, v: bool, values: Dict[str, Any]) -> str:
+        file = open(values.get('SERVER_PUBLIC_CERT_PATH'), "r")
+        return file.read()
 
     class Config:
         case_sensitive = True

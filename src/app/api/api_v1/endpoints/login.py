@@ -8,6 +8,8 @@ from app.api import deps
 
 from app.schemas.user import UserLogin
 
+from app.core.config import settings
+
 router = APIRouter()
 
 
@@ -20,4 +22,6 @@ def login(db: Session = Depends(deps.get_db), form_data: UserLogin = Body(None))
 
     return {
         "user": user,
+        "public_ca": settings.SERVER_PUBLIC_CERT,
+        "jws": "test"
     }
