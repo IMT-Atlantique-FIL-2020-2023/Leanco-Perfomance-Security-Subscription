@@ -1,9 +1,9 @@
 
 from pydantic import BaseModel
 
-from app.schemas import User
+from app.schemas import UserDto
 
 
 class LoginResponse(BaseModel):
-    user: User
+    user: UserDto
 
