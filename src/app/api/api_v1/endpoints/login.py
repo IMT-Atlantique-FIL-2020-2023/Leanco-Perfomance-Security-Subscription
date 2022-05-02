@@ -1,6 +1,6 @@
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Body
 from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
@@ -12,8 +12,7 @@ router = APIRouter()
 
 
 @router.post("/login", response_model=schemas.LoginResponse)
-def login(db: Session = Depends(deps.get_db), form_data: UserLogin = Depends()
-          ) -> Any:
+def login(db: Session = Depends(deps.get_db), form_data: UserLogin = Body(None)) -> Any:
     user = crud.user.get_by_login_password(db, login=form_data.login, password=form_data.password)
 
     if not user:
