@@ -1,8 +1,9 @@
 from sqladmin import ModelAdmin
 
-from ..models import User
+from app.models import User
 
 
+# Configuration page admin pour les utilisateurs
 class UserAdmin(ModelAdmin, model=User):
     name = "User"
     name_plural = "Users"
@@ -16,4 +17,3 @@ class UserAdmin(ModelAdmin, model=User):
                    User.subscription_enddate,
                    User.company,
                    User.subscription_type]
-

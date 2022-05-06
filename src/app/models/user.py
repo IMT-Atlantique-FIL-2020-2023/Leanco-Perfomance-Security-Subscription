@@ -5,7 +5,7 @@ from sqlalchemy.orm import relationship
 
 from ..db.base_class import Base
 
-
+# Modèle User en base
 class User(Base):
     id = Column(Integer, primary_key=True, index=True, nullable=False)
     firstname = Column(String, nullable=False)
@@ -21,6 +21,7 @@ class User(Base):
     subscription_type = relationship("SubscriptionType", back_populates="users")
 
 
+# Listener pour encoder le mot de passe à la création d'un utilisateur
 @event.listens_for(User.password, 'set', retval=True)
 def hash_password(target, value, oldvalue, initiator):
     if value != oldvalue:

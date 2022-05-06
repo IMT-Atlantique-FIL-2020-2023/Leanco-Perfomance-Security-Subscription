@@ -1,4 +1,3 @@
-import secrets
 from typing import Any, Dict, List, Optional, Union
 
 from jose import jwk
@@ -12,6 +11,7 @@ from pydantic import (
 )
 
 
+# Gestion des variables d'environnement pour la configuration
 class Settings(BaseSettings):
     API_BASE_URL: str = "/api"
     PROJECT_NAME: str
@@ -58,11 +58,13 @@ class Settings(BaseSettings):
     SERVER_PRIVATE_KEY: Key = None
     SERVER_PUBLIC_CERT: str = ''
 
+    # Récupère la clé privée du serveur à partir du fichier à SERVER_PRIVATE_KEY_PATH
     @validator("SERVER_PRIVATE_KEY")
     def get_server_private_key(cls, v: bool, values: Dict[str, Any]) -> Key:
         file = open(values.get('SERVER_PRIVATE_KEY_PATH'), "r")
         return jwk.construct(file.read(), algorithm=ALGORITHMS.RS384)
 
+    # Récupère la certificat public du serveur à partir du fichier à SERVER_PUBLIC_CERT_PATH
     @validator("SERVER_PUBLIC_CERT")
     def get_server_public_cert(cls, v: bool, values: Dict[str, Any]) -> str:
         file = open(values.get('SERVER_PUBLIC_CERT_PATH'), "r")

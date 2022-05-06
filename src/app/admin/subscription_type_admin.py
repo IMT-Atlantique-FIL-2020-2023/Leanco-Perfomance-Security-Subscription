@@ -1,8 +1,9 @@
 from sqladmin import ModelAdmin
 
-from ..models import SubscriptionType
+from app.models import SubscriptionType
 
 
+# Configuration page admin pour les types d'abonnement
 class SubscriptionTypeAdmin(ModelAdmin, model=SubscriptionType):
     name = "Subscription"
     name_plural = "Subscriptions"

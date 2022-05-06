@@ -1,3 +1,5 @@
+# Base de données + PgAdmin utilisé pour le développement
+
 version: '3.8'
 services:
   db:

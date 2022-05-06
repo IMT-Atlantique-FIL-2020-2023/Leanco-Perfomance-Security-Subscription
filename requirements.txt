@@ -1,3 +1,5 @@
+# Dépendances requises pour l'API
+
 fastapi>=0.68.0,<0.75.1
 pydantic>=1.8.0,<1.9.0
 uvicorn>=0.15.0,<1.0.3
@@ -14,3 +16,4 @@ uvloop~=0.14.0
 httptools==0.1.*
 alembic~=1.7.7
 sqladmin~=0.1.8
+python-dateutil~=2.8.2

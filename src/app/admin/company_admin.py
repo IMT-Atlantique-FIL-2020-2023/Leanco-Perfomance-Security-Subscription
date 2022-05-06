@@ -1,8 +1,9 @@
 from sqladmin import ModelAdmin
 
-from ..models import Company
+from app.models import Company
 
 
+# Configuration page admin pour les entreprises
 class CompanyAdmin(ModelAdmin, model=Company):
     name = "Company"
     name_plural = "Companies"

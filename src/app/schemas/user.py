@@ -7,6 +7,7 @@ from app.schemas.company import Company
 from app.schemas.subscription_type import SubscriptionType
 
 
+# Schema User utilisé par l'API
 class User(BaseModel):
     firstname: Optional[str] = None
     lastname: Optional[str] = None
@@ -21,6 +22,7 @@ class User(BaseModel):
         orm_mode = True
 
 
+# Schema du body accepté par l'API
 class UserCredentials(BaseModel):
     email: str
     password: str
