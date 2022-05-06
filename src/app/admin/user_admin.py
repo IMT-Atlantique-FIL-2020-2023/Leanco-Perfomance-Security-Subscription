@@ -11,7 +11,6 @@ class UserAdmin(ModelAdmin, model=User):
                    User.firstname,
                    User.lastname,
                    User.email,
-                   User.login,
                    User.role,
                    User.subscription_startdate,
                    User.subscription_enddate,
