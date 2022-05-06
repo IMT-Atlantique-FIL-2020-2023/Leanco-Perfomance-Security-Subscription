@@ -37,7 +37,9 @@ def login(db: Session = Depends(deps.get_db), form_data: UserCredentials = Body(
                 'exp': min(datetime.now() + relativedelta(weeks=+1),
                            datetime.combine(user.subscription_enddate, datetime.min.time())),
                 # Date de création du jws
-                'iat': datetime.now()
+                'iat': datetime.now(),
+                # Vérification de l'utilisateur
+                'aud': user.email
             }), settings.SERVER_PRIVATE_KEY,
             algorithm=ALGORITHMS.RS384)
     }
