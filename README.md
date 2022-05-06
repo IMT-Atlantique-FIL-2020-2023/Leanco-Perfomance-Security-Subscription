@@ -4,7 +4,7 @@
  
 - Prérequis : Base de données Postgresql
 
-1. Placer le server.key et le server-fullchain.crt dans le dossier
+1. Placer le server.key et le server-fullchain.crt à la racine du projet (ou autre)
 
 
 2. Créer un fichier .env dans le dossier src avec les variables suivantes (valeurs à modifier) :
