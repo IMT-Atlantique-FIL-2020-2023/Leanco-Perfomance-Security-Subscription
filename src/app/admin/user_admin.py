@@ -17,3 +17,12 @@ class UserAdmin(ModelAdmin, model=User):
                    User.subscription_enddate,
                    User.company,
                    User.subscription_type]
+    column_details_list = [User.id,
+                           User.firstname,
+                           User.lastname,
+                           User.email,
+                           User.role,
+                           User.subscription_startdate,
+                           User.subscription_enddate,
+                           User.company,
+                           User.subscription_type]
